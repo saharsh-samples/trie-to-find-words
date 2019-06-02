@@ -40,7 +40,7 @@ class Impl {
             }
 
             // if already at maxLength, don't schedule any further children nodes
-            if (node.crumbs.length == maxLength) {
+            if (node.crumbs.length === maxLength) {
                 continue;
             }
 
