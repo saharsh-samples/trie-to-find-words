@@ -1,7 +1,5 @@
 import React from 'react';
-import ALL_WORDS from './impl/english-words.json';
-import Impl from './impl/Impl';
-import Trie from './impl/Trie';
+import ImplFactory from './impl/ImplFactory';
 import Inputs from './ui/Inputs';
 import Output from './ui/Output';
 
@@ -11,11 +9,7 @@ class App extends React.Component {
         super(props);
 
         // initialize search implementation
-        const trie = new Trie()
-        ALL_WORDS.forEach(word => {
-            trie.insert(word.toLowerCase())
-        });
-        this.impl = new Impl(trie)
+        this.impl = ImplFactory.newImpl()
 
         // initialize UI state
         this.state = {
@@ -75,12 +69,12 @@ class App extends React.Component {
                 <Inputs
                     selectedMin={this.state.min}
                     minChangeHandler={this.handleMinMaxChange("min")}
-                    resetHandler={this.reset}
                     selectedMax={this.state.max}
                     maxChangeHandler={this.handleMinMaxChange("max")}
                     letters={this.state.letters}
                     letterEntryHandler={this.handleLetterEntry}
                     letterEntryDisabled={this.state.max === this.state.letters.length}
+                    resetHandler={this.reset}
                 />
                 <br/>
                 <Output words={this.state.words} />

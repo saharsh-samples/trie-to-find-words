@@ -1,12 +1,14 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import LetterEntry from './LetterEntry';
 import MinMax from './MinMax';
 
 class Inputs extends React.Component {
     render() {
         return (
-            <div>
+            <div><Card><CardContent>
                 <MinMax 
                     type="min" selectedValue={this.props.selectedMin} 
                     changeHandler={this.props.minChangeHandler} 
@@ -23,7 +25,7 @@ class Inputs extends React.Component {
                 />
                 <br/>
                 <Button onClick={this.props.resetHandler}>Reset</Button>
-            </div>
+            </CardContent></Card></div>
         );
     }
 }

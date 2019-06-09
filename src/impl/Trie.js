@@ -42,10 +42,6 @@ class Trie {
         return currentNode != null && currentNode.isWord
     }
 
-    getRootNode = character => {
-        return this.rootNodes[character]
-    }
-
 }
 
 export default Trie
