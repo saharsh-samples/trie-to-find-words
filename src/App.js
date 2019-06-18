@@ -44,7 +44,7 @@ class App extends React.Component {
         }
 
         // letters
-        var letters = this.state.letters
+        const letters = this.state.letters
         letters.push(letter)
         this.setState({letters : letters})
 
