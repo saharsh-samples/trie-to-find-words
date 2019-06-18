@@ -1,4 +1,4 @@
-class WordSearchNode {
+class CandidateNode {
     constructor(crumbs, trieNode) {
         this.crumbs = crumbs
         this.trieNode = trieNode
@@ -21,7 +21,7 @@ class Impl {
             const letter = letters[i]
             let rootNode = this.trie.rootNodes[letter]
             if(rootNode != null) {
-                nodesToVisit.push(new WordSearchNode([i], rootNode))
+                nodesToVisit.push(new CandidateNode([i], rootNode))
             }
         }
 
@@ -58,7 +58,7 @@ class Impl {
                 if(candidateNode != null) {
                     const crumbs = [...node.crumbs]
                     crumbs.push(i)
-                    nodesToVisit.push(new WordSearchNode(crumbs, candidateNode))
+                    nodesToVisit.push(new CandidateNode(crumbs, candidateNode))
                 }
             }
         }

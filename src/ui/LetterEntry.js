@@ -5,7 +5,7 @@ class LetterEntry extends React.Component {
 
     render() {
 
-        var letters = "";
+        let letters = "";
         this.props.letters.forEach(letter => {
             letters = letters + letter + " "
         })
